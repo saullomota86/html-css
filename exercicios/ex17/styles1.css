@@ -1,0 +1,235 @@
+:root{
+  /* Paleta aplicada */
+  --accent: #BB0000;      /* vermelho: ênfases, logo, links */
+  --support: #DDDEC6;     /* sage claro: faixas e fundos suaves */
+  --neutral-warm: #453831;/* marrom quente: detalhes/sombras sutis */
+  --ink: #000000;         /* texto principal */
+  --muted: #666666;       /* texto secundário */
+  --card: #FFFFFF;        /* superfícies (cards) */
+  --bg: #FFFFFF;          /* fundo da página */
+  --line: #E6E8DA;        /* bordas (sage mais claro) */
+
+  --radius:14px;
+  --maxw:1100px;
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font:16px/1.5 system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  color:var(--ink);
+  background:var(--bg);
+  display:grid;
+  grid-template-rows: auto auto auto auto auto;
+  gap:24px;
+}
+
+.wrap{
+  width:min(100%, var(--maxw));
+  margin-inline:auto;
+  padding-inline:16px;
+}
+
+/* ---------- HEADER (topbar) ---------- */
+header{
+  background:var(--support);
+  border-bottom:1px solid var(--line);
+}
+
+.topbar{
+  height:64px;
+  display:grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items:center;
+  gap:12px;
+}
+
+.chipbar{
+  display:grid;
+  grid-auto-flow:column;
+  gap:8px;
+  justify-content:start;
+}
+
+.chipbar.right{ justify-content:end; }
+
+.chip{
+  padding:8px 14px;
+  background:#F2F3EA;        /* variação do sage para dar relevo */
+  border:1px solid var(--line);
+  border-radius:999px;
+  font-size:.9rem;
+  color:var(--muted);
+}
+.chip:hover{ border-color:#D9DCC7 }
+
+/* Logo/links com o vermelho principal */
+.logo{
+  justify-self:center;
+  font-weight:700;
+  letter-spacing:.4px;
+  color:var(--accent);
+}
+
+/* ---------- HERO (perfil) ---------- */
+.hero{
+  background:var(--support);
+  border:1px solid var(--line);
+  border-left:none;border-right:none;
+}
+
+.hero-inner{
+  min-height:260px;
+  display:grid;
+  place-items:center;
+  text-align:center;
+  gap:12px;
+}
+
+.avatar{
+  width:88px;height:88px;
+  border-radius:50%;
+  display:grid;place-items:center;
+  background:#EEEFE4;        /* círculo suave */
+  border:2px solid var(--line);
+  font-size:36px;
+  color:#7A7A7A;
+}
+
+.hero h1{ margin:6px 0 0; font-size:1.25rem; color:var(--ink); }
+.hero p{ margin:0; color:var(--muted) }
+
+/* ---------- FEATURE (imagem esquerda + texto) ---------- */
+.feature{
+  background:var(--support);
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+
+.feature-grid{
+  display:grid;
+  grid-template-columns: 320px 1fr;
+  gap:24px;
+  align-items:center;
+  padding-block:28px;
+}
+
+.feat-media{
+  aspect-ratio:4/5;
+  background:#E8E9DC;
+  border-radius:12px;
+  border:1px solid var(--line);
+}
+
+.feat-copy{
+  display:grid;
+  gap:12px;
+}
+
+.title-bar{
+  width:55%;
+  height:16px;
+  border-radius:8px;
+  background:#E1E3D2;
+}
+
+.line{ height:12px; background:#F0F1E7; border-radius:8px }
+.line.w70{ width:70% } .line.w90{ width:90% } .line.w40{ width:40% }
+
+/* ---------- SHOWCASE (3 cards) ---------- */
+.showcase{
+  background:var(--bg);
+}
+
+.showcase-frame{
+  margin:28px auto;
+  background:#FAFBF6;          /* moldura suave */
+  border:1px dashed var(--line);
+  border-radius:16px;
+  padding:28px;
+  display:grid;
+  gap:18px;
+}
+
+.showcase .bar{ height:14px; background:#ECEEDD; border-radius:8px }
+
+.cards{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:18px;
+}
+
+.card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:16px;
+  display:grid; gap:10px; align-content:start;
+  /* sombra sutil com o neutro quente para profundidade */
+  box-shadow:0 1px 0 rgba(69,56,49,.08);
+}
+
+.card .thumb{
+  width:56px;height:56px;border-radius:50%;
+  background:#F1F2E8;border:1px solid var(--line);
+}
+
+.card .bl{ height:10px; background:#F4F5EC; border-radius:6px }
+.card .bl.w80{ width:80% } .card .bl.w60{ width:60% }
+
+/* ---------- FOOTER (2 colunas + bolinhas) ---------- */
+footer{
+  background:var(--support);
+  border-top:1px solid var(--line);
+}
+
+.footer-grid{
+  display:grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap:24px;
+  align-items:center;
+  min-height:160px;
+}
+
+.cols{ display:grid; gap:12px; }
+
+.row{
+  display:grid; grid-template-columns:1fr 1fr; gap:18px;
+}
+
+.dotbar{
+  display:grid; grid-auto-flow:column; gap:10px; justify-content:end;
+}
+
+.dot{
+  width:14px;height:14px;border-radius:50%;
+  background:#E4E6D5;border:1px solid var(--line);
+}
+
+/* ---------- Links & Acessibilidade ---------- */
+a{ color:var(--accent); text-decoration:none }
+a:hover{ text-decoration:underline }
+
+/* Botões/estados críticos poderiam usar fundo vermelho e texto branco */
+.button-primary{
+  background:var(--accent);
+  color:#fff;
+  border:none;
+  border-radius:10px;
+  padding:10px 16px;
+}
+
+/* ---------- RESPONSIVO ---------- */
+@media (max-width: 960px){
+  .feature-grid{ grid-template-columns: 1fr; }
+}
+@media (max-width: 720px){
+  .topbar{ grid-template-columns: 1fr auto; }
+  .chipbar.right{ display:none; }
+  .cards{ grid-template-columns: 1fr; }
+  .footer-grid{ grid-template-columns: 1fr; justify-items:center; text-align:center; }
+  .row{ grid-template-columns:1fr; }
+  .dotbar{ justify-content:center; }
+}
+
